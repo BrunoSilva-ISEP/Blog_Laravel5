@@ -9,7 +9,7 @@
   <link href="/assets/css/admin.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="/assets/css/datatables.tabletools.css">
   <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
-
+<link href="/assets/css/blog.css" rel="stylesheet">
   @yield('styles')
 
   <!--[if lt IE 9]>
@@ -36,10 +36,13 @@
     </div>
   </div>
 </nav>
-
+@yield('page-header')
 @yield('content')
+@include('blog.partials.page-footer')
 <script src="/assets/js/admin.js"></script>
  <script src="/assets/js/datatables.tabletools.js"></script>
+{{-- Scripts --}}
+<script src="/assets/js/blog.js"></script>
 @yield('scripts')
 
 </body>
