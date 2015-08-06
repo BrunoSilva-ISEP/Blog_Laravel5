@@ -1,13 +1,5 @@
 @extends('admin.layout')
 @section('content')
-<style>
-tfoot {
-    display: table-header-group;
-}
- .dataTables_filter {
-   display: none;
- }
-</style>
 <div class="container-fluid">
     {{-- Top Bar --}}
     <div class="row page-title-row"> <div class="col-md-6">
@@ -39,11 +31,11 @@ tfoot {
                 </tr> </thead>
                 <tfoot>
                 <tr>
-                    <th>Name</th>
-                    <th>Type</th>
-                    <th>Date</th>
-                    <th>Size</th>
-                    <th data-sortable="false">Actions</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 </tfoot>
                 <tbody>
@@ -103,9 +95,8 @@ tfoot {
     $(document).ready( function () {
         $('#uploads-table tfoot th').each( function () {
             var title = $('#uploads-table thead th').eq( $(this).index() ).text();
-            $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
-        } );
-
+           $(this).html( '<input style="width: 100%" type="text" placeholder="" />' );
+                  });
         $("#uploads-table tbody").before($("#uploads-table tfoot"));
 
          var table = $('#uploads-table').DataTable({

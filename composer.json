@@ -10,7 +10,8 @@
         "michelf/php-markdown": "^1.5",
         "michelf/php-smartypants": "1.6.0-beta1",
         "laravelcollective/html": "5.1.*",
-        "dflydev/apache-mime-types": "^1.0"
+        "dflydev/apache-mime-types": "^1.0",
+        "doctrine/dbal": "^2.5"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

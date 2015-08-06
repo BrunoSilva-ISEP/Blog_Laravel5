@@ -26,13 +26,14 @@
                 </thead>
                 <tfoot>
                 <tr>
-                    <th>Tag</th>
-                    <th>Title</th>
-                    <th class="hidden-sm">Subtitle</th>
-                    <th class="hidden-md">Page Image</th>
-                    <th class="hidden-md">Meta Description</th> <th class="hidden-md">Layout</th>
-                    <th class="hidden-sm">Direction</th>
-                    <th data-sortable="false">Actions</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 </tfoot>
                 <tbody>
@@ -64,11 +65,9 @@
     $(document).ready( function () {
         $('#tags-table tfoot th').each( function () {
             var title = $('#tags-table thead th').eq( $(this).index() ).text();
-            $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
-        } );
-
+       $(this).html( '<input style="width: 100%" type="text" placeholder="" />' );
+              } );
         $("#tags-table tbody").before($("#tags-table tfoot"));
-
          var table = $('#tags-table').DataTable({
                "columnDefs": [
                     {
