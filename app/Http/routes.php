@@ -19,7 +19,7 @@ Route::get('blog','BlogController@index');
 Route::get('blog/{slug}','BlogController@showPost');
 
 // Admin area
-get('admin', function () {
+Route::get('admin', function () {
     return redirect('/admin/post');
 });
 $router->group([
@@ -27,7 +27,7 @@ $router->group([
     'middleware' => 'auth',
 ], function () {
     resource('admin/post', 'PostController');
-    resource('admin/tag', 'TagController');
+    resource('admin/tag', 'TagController',['except' => 'show']);
     get('admin/upload', 'UploadController@index');
 });
 
