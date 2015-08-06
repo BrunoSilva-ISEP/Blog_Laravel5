@@ -1,4 +1,5 @@
 @extends('admin.layout')
+
 @section('content')
 <div class="container-fluid">
     <div class="row page-title-row">
@@ -39,8 +40,55 @@
 </div>
 @stop
 @section('scripts')
-<script> $(function() {
-        $("#posts-table").DataTable({ order: [[0, "desc"]]
-        }); });
+<script>
+    $(document).ready( function () {
+        $('#posts-table tfoot th').each( function () {
+            var title = $('#posts-table thead th').eq( $(this).index() ).text();
+            $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+        } );
+
+        $("#posts-table tbody").before($("#posts-table tfoot"));
+
+         var table = $('#posts-table').DataTable({
+             "order": [[1, "desc"]],
+             dom: 'T<"clear">lfrtip',
+             responsive: true,
+             tableTools: {
+                 "sSwfPath": "/swf/copy_csv_xls_pdf.swf",
+                 "aButtons": [
+        {
+            "sExtends": "copy",
+            "sButtonText": "Copy to clipboard",
+            "oSelectorOpts": { filter: "applied", order: "current" }
+        },
+        {
+            "sExtends": "xls",
+            "sButtonText": "Export to Excel",
+            "oSelectorOpts": { filter: "applied", order: "current" }
+        },
+        {
+            "sExtends": "print",
+            "sButtonText": "Print",
+            "oSelectorOpts": { filter: "applied", order: "current" }
+        },
+        {
+            "sExtends": "pdf",
+            "sButtonText": "PDF",
+            "oSelectorOpts": { filter: "applied", order: "current" }
+        }
+      ]
+             }
+         });
+
+         table.columns().eq(0).each(function (colIdx) {
+             $('input', table.column(colIdx).footer()).on('keyup change', function () {
+                 table
+                     .column(colIdx)
+                     .search(this.value)
+                     .draw();
+             });
+         });
+    });
+
 </script>
 @stop

@@ -1,0 +1,6 @@
+tfoot {
+    display: table-header-group;
+}
+.dataTables_filter {
+    display: none;
+}

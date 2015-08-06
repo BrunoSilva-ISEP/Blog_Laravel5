@@ -25,6 +25,7 @@ gulp.task("copyfiles", function() {
     // copy tabletools
     gulp.src("vendor/bower_dl/datatables-tabletools/css/datatables.tabletools.css") .pipe(gulp.dest("public/assets/css/"));
     gulp.src("vendor/bower_dl/datatables-tabletools/js/datatables.tabletools.js") .pipe(gulp.dest("public/assets/js/"));
+    gulp.src("vendor/bower_dl/global/css/main.css") .pipe(gulp.dest("public/assets/css/"));
 });
 elixir(function(mix) {
 // Combine scripts

@@ -1,12 +1,4 @@
 @extends('admin.layout')
-<style>
-tfoot {
-    display: table-header-group;
-}
- .dataTables_filter {
-   display: none;
- }
-</style>
 @section('content')
 <div class="container-fluid">
     <div class="row page-title-row">
@@ -78,7 +70,16 @@ tfoot {
         $("#tags-table tbody").before($("#tags-table tfoot"));
 
          var table = $('#tags-table').DataTable({
-
+               "columnDefs": [
+                    {
+                        "targets": [ 3 ],
+                        "visible": false,
+                        "searchable": false
+                    },
+                    {
+                        "targets": [ 4 ],
+                        "visible": false
+                    }],
              "order": [[1, "desc"]],
              dom: 'T<"clear">lfrtip',
              responsive: true,

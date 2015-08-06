@@ -8,6 +8,7 @@
   <title>{{ config('blog.title') }} Admin</title>
   <link href="/assets/css/admin.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="/assets/css/datatables.tabletools.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
 
   @yield('styles')
 

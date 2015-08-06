@@ -24,3 +24,10 @@ $factory->define(App\Post::class, function ($faker) { return [
     'title' => $faker->sentence(mt_rand(3, 10)),
     'content' => join("\n\n", $faker->paragraphs(mt_rand(3, 6))), 'published_at' => $faker->dateTimeBetween('-1 month', '+3 days'),
 ]; });
+$factory->define(App\Tag::class, function($faker){
+    return[
+        'tag' => $faker->sentence(mt_rand(2,5)),
+        'title' => $faker->sentence(mt_rand(3,10)),
+        'subtitle' =>$faker->sentence(mt_rand(3,10)),
+    ];
+});
